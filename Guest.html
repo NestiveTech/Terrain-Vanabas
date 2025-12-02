@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Book Your Stay - Terrain Vanabas Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+    }
+    
+    .booking-container {
+      background: white;
+      max-width: 1000px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+    
+    .booking-header {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+    
+    .booking-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+      opacity: 0.3;
+    }
+    
+    .booking-header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .booking-header p {
+      font-size: 18px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+    
+    .booking-form {
+      padding: 50px 40px;
+    }
+    
+    .form-section {
+      margin-bottom: 40px;
+    }
+    
+    .section-title {
+      color: #2d5016;
+      font-size: 22px;
+      font-weight: 700;
+      margin-bottom: 25px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding-bottom: 12px;
+      border-bottom: 3px solid #e0e0e0;
+    }
+    
+    .section-title i {
+      font-size: 24px;
+      color: #4a7c2b;
+    }
+    
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 25px;
+      margin-bottom: 25px;
+    }
+    
+    .form-group {
+      margin-bottom: 25px;
+    }
+    
+    .form-group label {
+      display: block;
+      margin-bottom: 10px;
+      font-weight: 600;
+      color: #333;
+      font-size: 15px;
+    }
+    
+    .form-group label .required {
+      color: #dc3545;
+      margin-left: 3px;
+      font-size: 16px;
+    }
+    
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      width: 100%;
+      padding: 14px 16px;
+      border: 2px solid #ddd;
+      border-radius: 10px;
+      font-size: 15px;
+      transition: all 0.3s;
+      font-family: inherit;
+    }
+    
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none;
+      border-color: #4a7c2b;
+      box-shadow: 0 0 0 4px rgba(74, 124, 43, 0.1);
+    }
+    
+    .form-group textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+    
+    .form-group input::placeholder,
+    .form-group textarea::placeholder {
+      color: #999;
+    }
+    
+    .room-selection {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+    
+    .room-card {
+      border: 3px solid #e0e0e0;
+      border-radius: 15px;
+      padding: 25px;
+      cursor: pointer;
+      transition: all 0.3s;
+      position: relative;
+      background: #f9f9f9;
+    }
+    
+    .room-card:hover {
+      border-color: #4a7c2b;
+      background: #f5f5f5;
+      transform: translateY(-3px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+    
+    .room-card input[type="checkbox"] {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      width: 24px;
+      height: 24px;
+      cursor: pointer;
+      accent-color: #28a745;
+    }
+    
+    .room-card.selected {
+      border-color: #28a745;
+      background: #e8f5e9;
+      box-shadow: 0 5px 20px rgba(40, 167, 69, 0.2);
+    }
+    
+    .room-card h4 {
+      color: #2d5016;
+      font-size: 20px;
+      margin-bottom: 12px;
+      padding-right: 35px;
+    }
+    
+    .room-card p {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 8px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    
+    .room-card p i {
+      color: #4a7c2b;
+      width: 16px;
+    }
+    
+    .room-card .price {
+      color: #ff9800;
+      font-weight: bold;
+      font-size: 18px;
+      margin-top: 15px;
+    }
+    
+    .room-card .availability {
+      background: #28a745;
+      color: white;
+      padding: 5px 12px;
+      border-radius: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      display: inline-block;
+      margin-top: 10px;
+    }
+    
+    .selected-rooms-info {
+      background: #fff3cd;
+      padding: 15px 20px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+      display: none;
+    }
+    
+    .selected-rooms-info.show {
+      display: block;
+    }
+    
+    .selected-rooms-info p {
+      margin: 0;
+      color: #856404;
+      font-weight: 600;
+      font-size: 15px;
+    }
+    
+    .info-box {
+      background: #e8f5e9;
+      padding: 18px 20px;
+      border-radius: 12px;
+      border-left: 5px solid #28a745;
+      margin-bottom: 25px;
+    }
+    
+    .info-box p {
+      margin: 0;
+      color: #2d5016;
+      font-size: 15px;
+      line-height: 1.7;
+    }
+    
+    .info-box.warning {
+      background: #fff3cd;
+      border-left-color: #ff9800;
+    }
+    
+    .info-box.warning p {
+      color: #856404;
+    }
+    
+    .info-box i {
+      margin-right: 8px;
+    }
+    
+    .terms-checkbox {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      margin-bottom: 30px;
+      padding: 20px;
+      background: #f9f9f9;
+      border-radius: 10px;
+      border: 2px solid #e0e0e0;
+    }
+    
+    .terms-checkbox input[type="checkbox"] {
+      width: 22px;
+      height: 22px;
+      margin-top: 2px;
+      cursor: pointer;
+      accent-color: #28a745;
+    }
+    
+    .terms-checkbox label {
+      font-size: 14px;
+      color: #666;
+      cursor: pointer;
+      line-height: 1.6;
+    }
+    
+    .terms-checkbox label a {
+      color: #2d5016;
+      text-decoration: underline;
+      font-weight: 600;
+    }
+    
+    .submit-btn {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 18px 50px;
+      border: none;
+      border-radius: 12px;
+      font-size: 20px;
+      font-weight: 700;
+      cursor: pointer;
+      width: 100%;
+      transition: all 0.3s;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 12px;
+    }
+    
+    .submit-btn:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(45, 80, 22, 0.4);
+    }
+    
+    .submit-btn:active {
+      transform: translateY(-1px);
+    }
+    
+    .submit-btn:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+      transform: none;
+      box-shadow: none;
+    }
+    
+    .submit-btn i {
+      font-size: 22px;
+    }
+    
+    .footer-note {
+      text-align: center;
+      padding: 30px;
+      background: #f9f9f9;
+      color: #666;
+      font-size: 14px;
+      line-height: 1.8;
+    }
+    
+    .footer-note strong {
+      color: #2d5016;
+    }
+    
+    .footer-note a {
+      color: #2d5016;
+      text-decoration: none;
+      font-weight: 600;
+    }
+    
+    .toast {
+      position: fixed;
+      top: 30px;
+      right: 30px;
+      background: #2d5016;
+      color: white;
+      padding: 16px 28px;
+      border-radius: 12px;
+      box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+      z-index: 2000;
+      transform: translateX(450px);
+      transition: transform 0.4s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      max-width: 400px;
+    }
+    
+    .toast.show { transform: translateX(0); }
+    .toast.success { background: #28a745; }
+    .toast.error { background: #dc3545; }
+    
+    .toast i {
+      font-size: 20px;
+    }
+    
+    .loading-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.75);
+      z-index: 3000;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .loading-overlay.show { display: flex; }
+    
+    .loading-content {
+      background: white;
+      padding: 50px 60px;
+      border-radius: 20px;
+      text-align: center;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+    }
+    
+    .loading-content i {
+      font-size: 56px;
+      color: #2d5016;
+      animation: spin 1s linear infinite;
+    }
+    
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    
+    .loading-content p {
+      margin-top: 20px;
+      color: #333;
+      font-size: 18px;
+      font-weight: 600;
+    }
+    
+    .back-to-home {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    
+    .back-to-home a {
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+      font-weight: 600;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(255,255,255,0.2);
+      padding: 10px 20px;
+      border-radius: 8px;
+      transition: all 0.3s;
+    }
+    
+    .back-to-home a:hover {
+      background: rgba(255,255,255,0.3);
+      transform: translateX(-5px);
+    }
+    
+    .empty-rooms {
+      text-align: center;
+      padding: 50px;
+      color: #999;
+    }
+    
+    .empty-rooms i {
+      font-size: 64px;
+      margin-bottom: 20px;
+      opacity: 0.5;
+    }
+    
+    @media (max-width: 768px) {
+      body { padding: 20px 10px; }
+      .booking-header { padding: 35px 25px; }
+      .booking-header h1 { font-size: 28px; }
+      .booking-header p { font-size: 15px; }
+      .booking-form { padding: 30px 20px; }
+      .form-row { grid-template-columns: 1fr; gap: 20px; }
+      .room-selection { grid-template-columns: 1fr; }
+      .section-title { font-size: 20px; }
+      .submit-btn { font-size: 18px; padding: 16px 40px; }
+      .toast { right: 10px; left: 10px; max-width: none; }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="back-to-home">
+    <a href="index.html">
+      <i class="fas fa-arrow-left"></i> Back to Home
+    </a>
+  </div>
+
+  <div class="booking-container">
+    <div class="booking-header">
+      <h1>🌳 Book Your Stay at Terrain Vanabas</h1>
+      <p>Experience nature's tranquility - Complete the form below for your reservation</p>
+    </div>
+
+    <form class="booking-form" id="bookingForm" onsubmit="handleSubmit(event)">
+      
+      <!-- GUEST INFORMATION -->
+      <div class="form-section">
+        <div class="section-title">
+          <i class="fas fa-user-circle"></i>
+          <span>Your Information</span>
+        </div>
+        
+        <div class="form-row">
+          <div class="form-group">
+            <label>Full Name <span class="required">*</span></label>
+            <input type="text" id="guestName" name="guestName" required placeholder="Enter your full name">
+          </div>
+          <div class="form-group">
+            <label>Email Address <span class="required">*</span></label>
+            <input type="email" id="email" name="email" required placeholder="your.email@example.com">
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Phone Number <span class="required">*</span></label>
+            <input type="tel" id="phone" name="phone" required placeholder="+91 98765 43210" pattern="[0-9+\s-]{10,15}">
+          </div>
+          <div class="form-group">
+            <label>ID Proof Number <span class="required">*</span></label>
+            <input type="text" id="idCard" name="idCard" required placeholder="Aadhaar / Passport / License Number">
+          </div>
+        </div>
+
+        <!-- <div class="form-group">
+          <label>Complete Address</label>
+          <textarea id="address" name="address" placeholder="Street Address, City, State, PIN Code"></textarea>
+        </div> -->
+      </div>
+
+      <!-- BOOKING DETAILS -->
+      <div class="form-section">
+        <div class="section-title">
+          <i class="fas fa-calendar-check"></i>
+          <span>Booking Details</span>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Check-in Date <span class="required">*</span></label>
+            <input type="date" id="checkinDate" name="checkinDate" required>
+          </div>
+          <div class="form-group">
+            <label>Check-out Date <span class="required">*</span></label>
+            <input type="date" id="checkoutDate" name="checkoutDate" required>
+          </div>
+        </div>
+
+        <!-- <div class="form-row">
+          <div class="form-group">
+            <label>Number of Adults <span class="required">*</span></label>
+            <select id="adults" name="adults" required>
+              <option value="">Select Adults</option>
+              <option value="1">1 Adult</option>
+              <option value="2">2 Adults</option>
+              <option value="3">3 Adults</option>
+              <option value="4">4 Adults</option>
+              <option value="5">5 Adults</option>
+              <option value="6">6+ Adults</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>Number of Children</label>
+            <select id="children" name="children">
+              <option value="0">No Children</option>
+              <option value="1">1 Child</option>
+              <option value="2">2 Children</option>
+              <option value="3">3 Children</option>
+              <option value="4">4+ Children</option>
+            </select>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- ROOM SELECTION -->
+      <div class="form-section">
+        <div class="section-title">
+          <i class="fas fa-bed"></i>
+          <span>Select Your Room(s) <span class="required">*</span></span>
+        </div>
+
+        <div class="info-box warning">
+          <p><i class="fas fa-info-circle"></i> <strong>Multiple rooms can be selected.</strong> Final availability and pricing will be confirmed by our team within 24 hours.</p>
+        </div>
+
+        <div class="selected-rooms-info" id="selectedRoomsInfo">
+          <p><i class="fas fa-check-circle"></i> <span id="selectedCount">0</span> room(s) selected</p>
+        </div>
+
+        <div class="room-selection" id="roomSelection">
+          <!-- Rooms loaded dynamically -->
+        </div>
+      </div>
+
+      <!-- SPECIAL REQUESTS -->
+      <!-- <div class="form-section">
+        <div class="section-title">
+          <i class="fas fa-concierge-bell"></i>
+          <span>Special Requests & Additional Information</span>
+        </div>
+
+        <div class="form-group">
+          <label>Special Requirements or Requests</label>
+          <textarea id="specialRequests" name="specialRequests" placeholder="Early check-in, extra bedding, dietary restrictions, airport pickup, celebration arrangements, etc."></textarea>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label>Purpose of Visit</label>
+            <select id="visitPurpose" name="visitPurpose">
+              <option value="">Select Purpose</option>
+              <option value="Leisure">Leisure / Vacation</option>
+              <option value="Business">Business / Corporate</option>
+              <option value="Event">Event / Function</option>
+              <option value="Wedding">Wedding / Celebration</option>
+              <option value="Family">Family Gathering</option>
+              <option value="Retreat">Retreat / Workshop</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label>How did you hear about us?</label>
+            <select id="referralSource" name="referralSource">
+              <option value="">Select Source</option>
+              <option value="Google">Google Search</option>
+              <option value="Social Media">Social Media (Facebook/Instagram)</option>
+              <option value="Friend">Friend / Family Referral</option>
+              <option value="Travel Agent">Travel Agent</option>
+              <option value="Advertisement">Advertisement</option>
+              <option value="Previous Guest">Previous Guest</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- BOOKING POLICY -->
+      <div class="info-box">
+        <p><i class="fas fa-shield-alt"></i> <strong>Booking Confirmation Policy:</strong></p>
+        <p style="margin-top: 8px;">Your booking request will be reviewed by our team. You will receive a confirmation email within 24 hours with complete booking details, payment information, and check-in instructions.</p>
+      </div>
+
+      <!-- TERMS & CONDITIONS -->
+      <div class="terms-checkbox">
+        <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
+        <label for="agreeTerms">
+          I have read and agree to the <a href="#" target="_blank">Terms & Conditions</a>, <a href="#" target="_blank">Privacy Policy</a>, and <a href="#" target="_blank">Cancellation Policy</a> of Terrain Vanabas Resort. <span class="required">*</span>
+        </label>
+      </div>
+
+      <!-- SUBMIT BUTTON -->
+      <button type="submit" class="submit-btn" id="submitBtn">
+        <i class="fas fa-paper-plane"></i>
+        <span>Submit Booking Request</span>
+      </button>
+    </form>
+
+    <div class="footer-note">
+      <!-- <p>📞 <strong>Need Immediate Assistance?</strong></p> -->
+      <p>
+        <!-- Call us: <strong><a href="tel:+919876543210">+91 98765 43210</a></strong> | Email:  -->
+        <strong><a href="mailto:info@jcktpic.com">Support</a></strong></p>
+      <!-- <p style="margin-top: 10px; color: #999;">Available 24/7 for your convenience</p> -->
+    </div>
+  </div>
+
+  <!-- Loading Overlay -->
+  <div class="loading-overlay" id="loadingOverlay">
+    <div class="loading-content">
+      <i class="fas fa-spinner"></i>
+      <p>Submitting your booking request...</p>
+      <p style="font-size: 14px; color: #666; margin-top: 10px;">Please wait...</p>
+    </div>
+  </div>
+
+  <!-- Toast Notification -->
+  <div class="toast" id="toast"></div>
+
+  <script>
+    // ⚠️ REPLACE WITH YOUR WEB APP URL
+    const API_URL = 'https://script.google.com/macros/s/AKfycbyCVJLsdm6DuZkmHW60QsJ1fih5iDPaRX8Ywk2c4ra2R4F6z-RGDU0uEs7-04TA5bi0/exec';
+    
+    let availableRooms = [];
+    let selectedRooms = [];
+
+    // Load Available Rooms
+    async function loadRooms() {
+      try {
+        const response = await fetch(API_URL, {
+          method: 'POST',
+          body: JSON.stringify({ action: 'getRooms' })
+        });
+        
+        const result = await response.json();
+        
+        if (result.success && result.data) {
+          availableRooms = result.data.filter(room => room.status === 'Active');
+          displayRooms();
+        } else {
+          displayNoRooms();
+        }
+      } catch (error) {
+        console.error('Error loading rooms:', error);
+        displayNoRooms();
+        showToast('Failed to load rooms. Please refresh the page or contact us directly.', 'error');
+      }
+    }
+
+    // Display Rooms
+    function displayRooms() {
+      const container = document.getElementById('roomSelection');
+      
+      if (availableRooms.length === 0) {
+        displayNoRooms();
+        return;
+      }
+
+      container.innerHTML = '';
+      
+      availableRooms.forEach(room => {
+        const roomCard = document.createElement('div');
+        roomCard.className = 'room-card';
+        roomCard.id = `room-card-${room.room_id}`;
+        
+        roomCard.innerHTML = `
+          <input type="checkbox" id="room-${room.room_id}" value="${room.room_id}" onchange="toggleRoom('${room.room_id}')">
+          <h4>${room.room_name || 'Room ' + room.room_id}</h4>
+          <p><i class="fas fa-tag"></i> ${room.room_type || 'Standard'}</p>
+          <p><i class="fas fa-users"></i> Capacity: ${room.capacity || '2'} persons</p>
+          ${room.price ? `<p class="price"><i class="fas fa-rupee-sign"></i> ${room.price}/night</p>` : '<p class="price">Contact for pricing</p>'}
+          <span class="availability">Available</span>
+        `;
+        
+        roomCard.onclick = function(e) {
+          if (e.target.tagName !== 'INPUT') {
+            const checkbox = roomCard.querySelector('input[type="checkbox"]');
+            checkbox.checked = !checkbox.checked;
+            toggleRoom(room.room_id);
+          }
+        };
+        
+        container.appendChild(roomCard);
+      });
+    }
+
+    // Display No Rooms Message
+    function displayNoRooms() {
+      const container = document.getElementById('roomSelection');
+      container.innerHTML = `
+        <div class="empty-rooms">
+          <i class="fas fa-bed"></i>
+          <p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">No rooms currently available online</p>
+          <p>Please contact us directly for availability and bookings</p>
+          <p style="margin-top: 15px;"><strong>📞 +91 98765 43210</strong></p>
+        </div>
+      `;
+    }
+
+    // Toggle Room Selection
+    function toggleRoom(roomId) {
+      const checkbox = document.getElementById(`room-${roomId}`);
+      const roomCard = document.getElementById(`room-card-${roomId}`);
+      
+      if (checkbox.checked) {
+        if (!selectedRooms.includes(roomId)) {
+          selectedRooms.push(roomId);
+        }
+        roomCard.classList.add('selected');
+      } else {
+        selectedRooms = selectedRooms.filter(id => id !== roomId);
+        roomCard.classList.remove('selected');
+      }
+      
+      updateSelectedCount();
+    }
+
+    // Update Selected Rooms Count
+    function updateSelectedCount() {
+      const countElement = document.getElementById('selectedCount');
+      const infoBox = document.getElementById('selectedRoomsInfo');
+      
+      countElement.textContent = selectedRooms.length;
+      
+      if (selectedRooms.length > 0) {
+        infoBox.classList.add('show');
+      } else {
+        infoBox.classList.remove('show');
+      }
+    }
+
+    // Set Min Dates (Today)
+    function setMinDates() {
+      const today = new Date();
+      const todayStr = today.toISOString().split('T')[0];
+      
+      document.getElementById('checkinDate').setAttribute('min', todayStr);
+      document.getElementById('checkoutDate').setAttribute('min', todayStr);
+    }
+
+    // Validate Dates
+    document.getElementById('checkinDate').addEventListener('change', function() {
+      const checkinDate = new Date(this.value);
+      const checkoutInput = document.getElementById('checkoutDate');
+      
+      const nextDay = new Date(checkinDate);
+      nextDay.setDate(nextDay.getDate() + 1);
+      
+      const nextDayStr = nextDay.toISOString().split('T')[0];
+      checkoutInput.setAttribute('min', nextDayStr);
+      
+      if (checkoutInput.value) {
+        const checkoutDate = new Date(checkoutInput.value);
+        if (checkoutDate <= checkinDate) {
+          checkoutInput.value = '';
+          showToast('Check-out date must be after check-in date', 'error');
+        }
+      }
+    });
+
+    // Handle Form Submit
+    async function handleSubmit(event) {
+      event.preventDefault();
+      
+      // Validate room selection
+      if (selectedRooms.length === 0) {
+        showToast('Please select at least one room to continue', 'error');
+        document.getElementById('roomSelection').scrollIntoView({ behavior: 'smooth', block: 'center' });
+        return;
+      }
+
+      // Validate dates
+      const checkinDate = new Date(document.getElementById('checkinDate').value);
+      const checkoutDate = new Date(document.getElementById('checkoutDate').value);
+      
+      if (checkoutDate <= checkinDate) {
+        showToast('Check-out date must be after check-in date', 'error');
+        return;
+      }
+
+      // Calculate nights
+      const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
+
+      // Collect form data
+      const formData = {
+        guest_name: document.getElementById('guestName').value.trim(),
+        email: document.getElementById('email').value.trim(),
+        phone: document.getElementById('phone').value.trim(),
+        id_card: document.getElementById('idCard').value.trim(),
+        address: document.getElementById('address').value.trim() || 'Not provided',
+        checkin_date: document.getElementById('checkinDate').value,
+        checkout_date: document.getElementById('checkoutDate').value,
+        adults: document.getElementById('adults').value,
+        children: document.getElementById('children').value,
+        special_requests: document.getElementById('specialRequests').value.trim() || 'None',
+        visit_purpose: document.getElementById('visitPurpose').value || 'Not specified',
+        referral_source: document.getElementById('referralSource').value || 'Not specified',
+        status: 'Confirmed',
+        nights: nights
+      };
+
+      // Show loading overlay
+      document.getElementById('loadingOverlay').classList.add('show');
+      document.getElementById('submitBtn').disabled = true;
+
+      try {
+        let successCount = 0;
+        let failedRooms = [];
+
+        // Create booking for each selected room
+        for (const roomId of selectedRooms) {
+          try {
+            const bookingData = { 
+              ...formData, 
+              room_id: roomId 
+            };
+
+            const response = await fetch(API_URL, {
+              method: 'POST',
+              body: JSON.stringify({ 
+                action: 'addBooking', 
+                data: bookingData 
+              })
+            });
+
+            const result = await response.json();
+            
+            if (result.success) {
+              successCount++;
+            } else {
+              failedRooms.push(roomId);
+            }
+          } catch (error) {
+            console.error(`Failed to book room ${roomId}:`, error);
+            failedRooms.push(roomId);
+          }
+        }
+
+        // Hide loading overlay
+        document.getElementById('loadingOverlay').classList.remove('show');
+        document.getElementById('submitBtn').disabled = false;
+
+        // Show result
+        if (successCount > 0) {
+          showToast(`✅ Success! Your booking request for ${successCount} room(s) has been submitted. You'll receive a confirmation email within 24 hours.`, 'success');
+          
+          // Reset form after 3 seconds
+          setTimeout(() => {
+            document.getElementById('bookingForm').reset();
+            selectedRooms = [];
+            document.querySelectorAll('.room-card').forEach(card => {
+              card.classList.remove('selected');
+              const checkbox = card.querySelector('input[type="checkbox"]');
+              if (checkbox) checkbox.checked = false;
+            });
+            updateSelectedCount();
+            setMinDates();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          }, 3000);
+        } else {
+          showToast('❌ Failed to submit booking request. Please try again or contact us directly at +91 98765 43210', 'error');
+        }
+
+      } catch (error) {
+        console.error('Submission error:', error);
+        document.getElementById('loadingOverlay').classList.remove('show');
+        document.getElementById('submitBtn').disabled = false;
+        showToast('❌ An error occurred while submitting your request. Please try again or contact us directly.', 'error');
+      }
+    }
+
+    // Show Toast Notification
+    function showToast(message, type = 'success') {
+      const toast = document.getElementById('toast');
+      const icon = type === 'success' ? 'fa-check-circle' : 'fa-exclamation-circle';
+      toast.innerHTML = `<i class="fas ${icon}"></i><span>${message}</span>`;
+      toast.className = `toast show ${type}`;
+      setTimeout(() => toast.classList.remove('show'), 6000);
+    }
+
+    // Initialize Page
+    window.onload = function() {
+      console.log('Initializing Terrain Vanabas Guest Booking Form...');
+      setMinDates();
+      loadRooms();
+    };
+
+    // Prevent form resubmission on page refresh
+    if (window.history.replaceState) {
+      window.history.replaceState(null, null, window.location.href);
+    }
+  </script>
+</body>
+</html>
