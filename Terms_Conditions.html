@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms & Conditions - Terrain Vanabas Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .policy-container {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .policy-header {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .policy-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .policy-header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-header p {
+      font-size: 18px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-content {
+      padding: 50px 40px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      color: #2d5016;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      font-size: 26px;
+      color: #4a7c2b;
+    }
+
+    .subsection-title {
+      color: #2d5016;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    .policy-content p {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .policy-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .policy-content li {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .policy-content li::before {
+      content: "•";
+      position: absolute;
+      left: 10px;
+      color: #4a7c2b;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid #4a7c2b;
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-radius: 8px;
+    }
+
+    .highlight-box p {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-box h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .contact-box a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(255,255,255,0.5);
+      transition: border-color 0.3s;
+    }
+
+    .contact-box a:hover {
+      border-bottom-color: white;
+    }
+
+    .back-button {
+      display: inline-block;
+      background: #4a7c2b;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #2d5016;
+    }
+
+    .back-button i {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .policy-header {
+        padding: 35px 25px;
+      }
+
+      .policy-header h1 {
+        font-size: 32px;
+      }
+
+      .policy-content {
+        padding: 35px 25px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="policy-container">
+    <div class="policy-header">
+      <h1><i class="fas fa-file-contract"></i> Terms & Conditions</h1>
+      <p>Terrain Vanabas Resort</p>
+    </div>
+
+    <div class="policy-content">
+
+      <div class="highlight-box">
+        <p><strong>Last Updated:</strong> December 2025</p>
+        <p>By making a reservation at Terrain Vanabas Resort, you agree to comply with and be bound by the following terms and conditions.</p>
+      </div>
+
+      <!-- Booking & Reservations -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-calendar-check"></i>
+          <span>Booking & Reservations</span>
+        </div>
+        <ul>
+          <li>All bookings are subject to availability and confirmation by Terrain Vanabas Resort.</li>
+          <li>Booking confirmation will be sent via email within 24 hours of receiving your request.</li>
+          <li>Valid government-issued photo identification is required at check-in for all guests.</li>
+          <li>The person making the booking must be at least 18 years of age.</li>
+          <li>Full and accurate guest information must be provided at the time of booking.</li>
+        </ul>
+      </div>
+
+      <!-- Check-in & Check-out -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-clock"></i>
+          <span>Check-in & Check-out</span>
+        </div>
+        <ul>
+          <li><strong>Standard Check-in Time:</strong> 2:00 PM</li>
+          <li><strong>Standard Check-out Time:</strong> 11:00 AM</li>
+          <li>Early check-in and late check-out are subject to availability and may incur additional charges.</li>
+          <li>Late check-out beyond 2:00 PM without prior approval may result in charges for an additional night.</li>
+          <li>Guests must complete check-in formalities and provide valid identification documents.</li>
+        </ul>
+      </div>
+
+      <!-- Payment Terms -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-credit-card"></i>
+          <span>Payment Terms</span>
+        </div>
+        <ul>
+          <li>Payment details and methods will be confirmed in your booking confirmation email.</li>
+          <li>Full payment may be required before check-in unless otherwise specified.</li>
+          <li>We accept cash, credit cards, debit cards, and online transfers.</li>
+          <li>All rates are quoted in Indian Rupees (INR) unless otherwise stated.</li>
+          <li>Prices are subject to applicable taxes and service charges.</li>
+        </ul>
+      </div>
+
+      <!-- Cancellation Policy -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-times-circle"></i>
+          <span>Cancellation Policy</span>
+        </div>
+        <ul>
+          <li>Free cancellation is available up to 48 hours (2 days) before check-in.</li>
+          <li>Cancellations within 48 hours of check-in will incur a fee of one night's room rate.</li>
+          <li>No-shows will be charged the full amount of the first night.</li>
+          <li>For detailed cancellation terms, please refer to our <a href="Cancellation_Policy.html" style="color: #4a7c2b; font-weight: 600;">Cancellation Policy</a>.</li>
+        </ul>
+      </div>
+
+      <!-- Guest Conduct -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-user-shield"></i>
+          <span>Guest Conduct</span>
+        </div>
+        <ul>
+          <li>Guests are expected to behave in a respectful and responsible manner at all times.</li>
+          <li>Smoking is prohibited in rooms and indoor common areas. Designated smoking areas are available.</li>
+          <li>Excessive noise or disruptive behavior that disturbs other guests is not permitted.</li>
+          <li>Pets are not allowed unless prior written approval has been obtained from management.</li>
+          <li>The resort reserves the right to refuse service or ask guests to leave without refund for violation of terms.</li>
+        </ul>
+      </div>
+
+      <!-- Property & Damages -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-home"></i>
+          <span>Property & Damages</span>
+        </div>
+        <ul>
+          <li>Guests are responsible for any damage caused to resort property during their stay.</li>
+          <li>Any breakage, damage, or loss of resort property will be charged to the guest's account.</li>
+          <li>Please report any existing damage or issues immediately upon check-in.</li>
+          <li>Lost keys or access cards will incur a replacement fee.</li>
+        </ul>
+      </div>
+
+      <!-- Safety & Security -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-shield-alt"></i>
+          <span>Safety & Security</span>
+        </div>
+        <ul>
+          <li>Guests are responsible for the safety of their personal belongings.</li>
+          <li>The resort is not liable for loss, theft, or damage to personal property.</li>
+          <li>Please use the safe deposit facilities provided for valuables.</li>
+          <li>Inform the front desk immediately of any safety concerns or suspicious activity.</li>
+          <li>Emergency exits and procedures are posted in each room.</li>
+        </ul>
+      </div>
+
+      <!-- Liability -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-exclamation-triangle"></i>
+          <span>Liability Limitations</span>
+        </div>
+        <ul>
+          <li>Terrain Vanabas Resort is not liable for personal injury, accidents, or illness during your stay except where caused by our negligence.</li>
+          <li>Guests participate in resort activities and use facilities at their own risk.</li>
+          <li>The resort is not responsible for any indirect, consequential, or incidental damages.</li>
+          <li>We recommend guests obtain appropriate travel insurance coverage.</li>
+        </ul>
+      </div>
+
+      <!-- Privacy -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-user-lock"></i>
+          <span>Privacy & Data</span>
+        </div>
+        <ul>
+          <li>Your personal information will be handled in accordance with our <a href="Privacy_Policy.html" style="color: #4a7c2b; font-weight: 600;">Privacy Policy</a>.</li>
+          <li>Guest information may be shared with authorities as required by law.</li>
+          <li>We use your data to process bookings, communicate with you, and improve our services.</li>
+        </ul>
+      </div>
+
+      <!-- Force Majeure -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-cloud-rain"></i>
+          <span>Force Majeure</span>
+        </div>
+        <p>Terrain Vanabas Resort shall not be held liable for failure to perform obligations due to circumstances beyond our reasonable control, including but not limited to natural disasters, pandemics, government actions, strikes, or other force majeure events.</p>
+      </div>
+
+      <!-- Modifications -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-edit"></i>
+          <span>Changes to Terms</span>
+        </div>
+        <p>Terrain Vanabas Resort reserves the right to modify these terms and conditions at any time. Updated terms will be posted on our website with the revision date. Continued use of our services constitutes acceptance of modified terms.</p>
+      </div>
+
+      <!-- Governing Law -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-gavel"></i>
+          <span>Governing Law</span>
+        </div>
+        <p>These terms and conditions are governed by the laws of India. Any disputes arising from these terms shall be subject to the exclusive jurisdiction of the courts in Jharkhand, India.</p>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-box">
+        <h3><i class="fas fa-headset"></i> Questions About Our Terms?</h3>
+        <p>If you have any questions regarding these terms and conditions, please contact us:</p>
+        <p><strong>Email:</strong> <a href="mailto:info@jcktpic.com">info@jcktpic.com</a></p>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="Guest.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Back to Booking
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

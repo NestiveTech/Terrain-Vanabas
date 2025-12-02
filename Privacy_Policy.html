@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Terrain Vanabas Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .policy-container {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .policy-header {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .policy-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .policy-header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-header p {
+      font-size: 18px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-content {
+      padding: 50px 40px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      color: #2d5016;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      font-size: 26px;
+      color: #4a7c2b;
+    }
+
+    .subsection-title {
+      color: #2d5016;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    .policy-content p {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .policy-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .policy-content li {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .policy-content li::before {
+      content: "•";
+      position: absolute;
+      left: 10px;
+      color: #4a7c2b;
+      font-weight: bold;
+      font-size: 20px;
+    }
+
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid #4a7c2b;
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-radius: 8px;
+    }
+
+    .highlight-box p {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-box h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .contact-box a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(255,255,255,0.5);
+      transition: border-color 0.3s;
+    }
+
+    .contact-box a:hover {
+      border-bottom-color: white;
+    }
+
+    .back-button {
+      display: inline-block;
+      background: #4a7c2b;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #2d5016;
+    }
+
+    .back-button i {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .policy-header {
+        padding: 35px 25px;
+      }
+
+      .policy-header h1 {
+        font-size: 32px;
+      }
+
+      .policy-content {
+        padding: 35px 25px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="policy-container">
+    <div class="policy-header">
+      <h1><i class="fas fa-user-lock"></i> Privacy Policy</h1>
+      <p>Terrain Vanabas Resort</p>
+    </div>
+
+    <div class="policy-content">
+
+      <div class="highlight-box">
+        <p><strong>Last Updated:</strong> December 2025</p>
+        <p>At Terrain Vanabas Resort, we are committed to protecting your privacy and ensuring the security of your personal information. This Privacy Policy explains how we collect, use, store, and protect your data.</p>
+      </div>
+
+      <!-- Information We Collect -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-database"></i>
+          <span>Information We Collect</span>
+        </div>
+
+        <div class="subsection-title">Personal Information</div>
+        <p>When you make a booking or interact with our resort, we may collect:</p>
+        <ul>
+          <li>Full name and contact details (email address, phone number)</li>
+          <li>Identification documents (Aadhaar, Passport, Driver's License numbers)</li>
+          <li>Residential address</li>
+          <li>Check-in and check-out dates</li>
+          <li>Number of guests (adults and children)</li>
+          <li>Special requests and preferences</li>
+          <li>Payment information and transaction details</li>
+        </ul>
+
+        <div class="subsection-title">Automatically Collected Information</div>
+        <ul>
+          <li>IP address and device information</li>
+          <li>Browser type and version</li>
+          <li>Pages visited and time spent on our website</li>
+          <li>Cookies and similar tracking technologies</li>
+        </ul>
+      </div>
+
+      <!-- How We Use Your Information -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-tasks"></i>
+          <span>How We Use Your Information</span>
+        </div>
+        <p>We use your personal information for the following purposes:</p>
+        <ul>
+          <li><strong>Booking Management:</strong> To process and confirm your reservations</li>
+          <li><strong>Communication:</strong> To send booking confirmations, updates, and important notifications</li>
+          <li><strong>Payment Processing:</strong> To handle transactions and billing</li>
+          <li><strong>Customer Service:</strong> To respond to inquiries and provide support</li>
+          <li><strong>Legal Compliance:</strong> To meet regulatory requirements and maintain guest records as required by law</li>
+          <li><strong>Service Improvement:</strong> To enhance our services and guest experience</li>
+          <li><strong>Marketing:</strong> To send promotional offers (only with your consent)</li>
+        </ul>
+      </div>
+
+      <!-- Information Sharing -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-share-alt"></i>
+          <span>Information Sharing & Disclosure</span>
+        </div>
+        <p>We do not sell, rent, or trade your personal information. We may share your information only in the following circumstances:</p>
+        <ul>
+          <li><strong>Legal Requirements:</strong> When required by law, government authorities, or law enforcement agencies</li>
+          <li><strong>Service Providers:</strong> With trusted third-party service providers who assist in operating our business (payment processors, booking systems)</li>
+          <li><strong>Business Transfers:</strong> In connection with a merger, acquisition, or sale of assets</li>
+          <li><strong>With Your Consent:</strong> When you explicitly authorize us to share your information</li>
+        </ul>
+        <p>All third parties are required to maintain the confidentiality and security of your information.</p>
+      </div>
+
+      <!-- Data Security -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-shield-alt"></i>
+          <span>Data Security</span>
+        </div>
+        <p>We implement appropriate technical and organizational measures to protect your personal information:</p>
+        <ul>
+          <li>Secure data transmission using encryption (SSL/TLS)</li>
+          <li>Restricted access to personal information on a need-to-know basis</li>
+          <li>Regular security assessments and updates</li>
+          <li>Secure storage systems with access controls</li>
+          <li>Staff training on data protection and privacy practices</li>
+        </ul>
+        <p>However, no method of transmission over the internet is 100% secure. While we strive to protect your information, we cannot guarantee absolute security.</p>
+      </div>
+
+      <!-- Data Retention -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-calendar-alt"></i>
+          <span>Data Retention</span>
+        </div>
+        <p>We retain your personal information for as long as necessary to:</p>
+        <ul>
+          <li>Fulfill the purposes outlined in this Privacy Policy</li>
+          <li>Comply with legal, tax, and accounting obligations</li>
+          <li>Resolve disputes and enforce our agreements</li>
+          <li>Maintain business records as required by Indian law</li>
+        </ul>
+        <p>Guest records are typically retained for a minimum period as mandated by local regulations.</p>
+      </div>
+
+      <!-- Your Rights -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-user-check"></i>
+          <span>Your Privacy Rights</span>
+        </div>
+        <p>You have the following rights regarding your personal information:</p>
+        <ul>
+          <li><strong>Access:</strong> Request a copy of the personal information we hold about you</li>
+          <li><strong>Correction:</strong> Request correction of inaccurate or incomplete information</li>
+          <li><strong>Deletion:</strong> Request deletion of your personal data (subject to legal retention requirements)</li>
+          <li><strong>Opt-Out:</strong> Unsubscribe from marketing communications at any time</li>
+          <li><strong>Data Portability:</strong> Request your data in a structured, machine-readable format</li>
+          <li><strong>Objection:</strong> Object to processing of your personal information for certain purposes</li>
+        </ul>
+        <p>To exercise any of these rights, please contact us at <strong>info@jcktpic.com</strong>.</p>
+      </div>
+
+      <!-- Cookies -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-cookie-bite"></i>
+          <span>Cookies & Tracking Technologies</span>
+        </div>
+        <p>We use cookies and similar tracking technologies to enhance your browsing experience:</p>
+        <ul>
+          <li><strong>Essential Cookies:</strong> Necessary for website functionality</li>
+          <li><strong>Performance Cookies:</strong> Help us understand how visitors use our website</li>
+          <li><strong>Functional Cookies:</strong> Remember your preferences and settings</li>
+          <li><strong>Marketing Cookies:</strong> Track your browsing to show relevant advertisements</li>
+        </ul>
+        <p>You can control cookie preferences through your browser settings. However, disabling cookies may affect website functionality.</p>
+      </div>
+
+      <!-- Third-Party Links -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-link"></i>
+          <span>Third-Party Links</span>
+        </div>
+        <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices or content of these external sites. We encourage you to review the privacy policies of any third-party websites you visit.</p>
+      </div>
+
+      <!-- Children's Privacy -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-child"></i>
+          <span>Children's Privacy</span>
+        </div>
+        <p>Our services are not intended for individuals under the age of 18. We do not knowingly collect personal information from children. If we become aware that we have collected information from a child, we will take steps to delete it promptly.</p>
+      </div>
+
+      <!-- Changes to Privacy Policy -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-sync-alt"></i>
+          <span>Changes to This Privacy Policy</span>
+        </div>
+        <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. The updated policy will be posted on our website with the revision date. We encourage you to review this policy periodically.</p>
+      </div>
+
+      <!-- Governing Law -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-gavel"></i>
+          <span>Governing Law</span>
+        </div>
+        <p>This Privacy Policy is governed by the laws of India and complies with applicable data protection regulations. Any disputes will be subject to the jurisdiction of courts in Jharkhand, India.</p>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-box">
+        <h3><i class="fas fa-envelope"></i> Contact Us About Privacy</h3>
+        <p>If you have questions, concerns, or requests regarding this Privacy Policy or how we handle your personal information:</p>
+        <p><strong>Email:</strong> <a href="mailto:info@jcktpic.com">info@jcktpic.com</a></p>
+        <p><strong>Address:</strong> Terrain Vanabas Resort, Jharkhand, India</p>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="Guest.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Back to Booking
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

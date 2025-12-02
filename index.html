@@ -473,11 +473,11 @@
 </head>
 <body>
 
-  <div class="back-to-home">
+  <!-- <div class="back-to-home">
     <a href="index.html">
       <i class="fas fa-arrow-left"></i> Back to Home
     </a>
-  </div>
+  </div> -->
 
   <div class="booking-container">
     <div class="booking-header">
@@ -515,11 +515,6 @@
             <input type="text" id="idCard" name="idCard" required placeholder="Aadhaar / Passport / License Number">
           </div>
         </div>
-
-        <!-- <div class="form-group">
-          <label>Complete Address</label>
-          <textarea id="address" name="address" placeholder="Street Address, City, State, PIN Code"></textarea>
-        </div> -->
       </div>
 
       <!-- BOOKING DETAILS -->
@@ -539,32 +534,7 @@
             <input type="date" id="checkoutDate" name="checkoutDate" required>
           </div>
         </div>
-
-        <!-- <div class="form-row">
-          <div class="form-group">
-            <label>Number of Adults <span class="required">*</span></label>
-            <select id="adults" name="adults" required>
-              <option value="">Select Adults</option>
-              <option value="1">1 Adult</option>
-              <option value="2">2 Adults</option>
-              <option value="3">3 Adults</option>
-              <option value="4">4 Adults</option>
-              <option value="5">5 Adults</option>
-              <option value="6">6+ Adults</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Number of Children</label>
-            <select id="children" name="children">
-              <option value="0">No Children</option>
-              <option value="1">1 Child</option>
-              <option value="2">2 Children</option>
-              <option value="3">3 Children</option>
-              <option value="4">4+ Children</option>
-            </select>
-          </div>
-        </div>
-      </div> -->
+      </div>
 
       <!-- ROOM SELECTION -->
       <div class="form-section">
@@ -586,48 +556,6 @@
         </div>
       </div>
 
-      <!-- SPECIAL REQUESTS -->
-      <!-- <div class="form-section">
-        <div class="section-title">
-          <i class="fas fa-concierge-bell"></i>
-          <span>Special Requests & Additional Information</span>
-        </div>
-
-        <div class="form-group">
-          <label>Special Requirements or Requests</label>
-          <textarea id="specialRequests" name="specialRequests" placeholder="Early check-in, extra bedding, dietary restrictions, airport pickup, celebration arrangements, etc."></textarea>
-        </div>
-
-        <div class="form-row">
-          <div class="form-group">
-            <label>Purpose of Visit</label>
-            <select id="visitPurpose" name="visitPurpose">
-              <option value="">Select Purpose</option>
-              <option value="Leisure">Leisure / Vacation</option>
-              <option value="Business">Business / Corporate</option>
-              <option value="Event">Event / Function</option>
-              <option value="Wedding">Wedding / Celebration</option>
-              <option value="Family">Family Gathering</option>
-              <option value="Retreat">Retreat / Workshop</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>How did you hear about us?</label>
-            <select id="referralSource" name="referralSource">
-              <option value="">Select Source</option>
-              <option value="Google">Google Search</option>
-              <option value="Social Media">Social Media (Facebook/Instagram)</option>
-              <option value="Friend">Friend / Family Referral</option>
-              <option value="Travel Agent">Travel Agent</option>
-              <option value="Advertisement">Advertisement</option>
-              <option value="Previous Guest">Previous Guest</option>
-              <option value="Other">Other</option>
-            </select>
-          </div>
-        </div>
-      </div> -->
-
       <!-- BOOKING POLICY -->
       <div class="info-box">
         <p><i class="fas fa-shield-alt"></i> <strong>Booking Confirmation Policy:</strong></p>
@@ -638,7 +566,7 @@
       <div class="terms-checkbox">
         <input type="checkbox" id="agreeTerms" name="agreeTerms" required>
         <label for="agreeTerms">
-          I have read and agree to the <a href="#" target="_blank">Terms & Conditions</a>, <a href="#" target="_blank">Privacy Policy</a>, and <a href="#" target="_blank">Cancellation Policy</a> of Terrain Vanabas Resort. <span class="required">*</span>
+          I have read and agree to the <a href="Terms_Conditions.html" target="_blank">Terms & Conditions</a>, <a href="Privacy_Policy.html" target="_blank">Privacy Policy</a>, and <a href="Cancellation_Policy.html" target="_blank">Cancellation Policy</a> of Terrain Vanabas Resort. <span class="required">*</span>
         </label>
       </div>
 
@@ -650,11 +578,7 @@
     </form>
 
     <div class="footer-note">
-      <!-- <p>📞 <strong>Need Immediate Assistance?</strong></p> -->
-      <p>
-        <!-- Call us: <strong><a href="tel:+919876543210">+91 98765 43210</a></strong> | Email:  -->
-        <strong><a href="mailto:info@jcktpic.com">Support</a></strong></p>
-      <!-- <p style="margin-top: 10px; color: #999;">Available 24/7 for your convenience</p> -->
+      <p><strong><a href="mailto:info@jcktpic.com">Support</a></strong></p>
     </div>
   </div>
 
@@ -745,7 +669,7 @@
           <i class="fas fa-bed"></i>
           <p style="font-size: 18px; font-weight: 600; margin-bottom: 10px;">No rooms currently available online</p>
           <p>Please contact us directly for availability and bookings</p>
-          <p style="margin-top: 15px;"><strong>📞 +91 98765 43210</strong></p>
+          <p style="margin-top: 15px;"><strong>📧 info@jcktpic.com</strong></p>
         </div>
       `;
     }
@@ -834,20 +758,20 @@
       // Calculate nights
       const nights = Math.ceil((checkoutDate - checkinDate) / (1000 * 60 * 60 * 24));
 
-      // Collect form data
+      // Collect form data (FIXED: Set default values for removed fields)
       const formData = {
         guest_name: document.getElementById('guestName').value.trim(),
         email: document.getElementById('email').value.trim(),
         phone: document.getElementById('phone').value.trim(),
         id_card: document.getElementById('idCard').value.trim(),
-        address: document.getElementById('address').value.trim() || 'Not provided',
+        address: 'Not provided',  // Fixed default value
         checkin_date: document.getElementById('checkinDate').value,
         checkout_date: document.getElementById('checkoutDate').value,
-        adults: document.getElementById('adults').value,
-        children: document.getElementById('children').value,
-        special_requests: document.getElementById('specialRequests').value.trim() || 'None',
-        visit_purpose: document.getElementById('visitPurpose').value || 'Not specified',
-        referral_source: document.getElementById('referralSource').value || 'Not specified',
+        adults: 'Not specified',  // Fixed default value
+        children: '0',  // Fixed default value
+        special_requests: 'None',  // Fixed default value
+        visit_purpose: 'Not specified',  // Fixed default value
+        referral_source: 'Not specified',  // Fixed default value
         status: 'Confirmed',
         nights: nights
       };
@@ -911,7 +835,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
           }, 3000);
         } else {
-          showToast('❌ Failed to submit booking request. Please try again or contact us directly at +91 98765 43210', 'error');
+          showToast('❌ Failed to submit booking request. Please try again or contact us at info@jcktpic.com', 'error');
         }
 
       } catch (error) {

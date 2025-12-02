@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cancellation Policy - Terrain Vanabas Resort</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body { 
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      min-height: 100vh;
+      padding: 40px 20px;
+      line-height: 1.6;
+    }
+
+    .policy-container {
+      background: white;
+      max-width: 900px;
+      width: 100%;
+      margin: 0 auto;
+      border-radius: 20px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.3);
+      overflow: hidden;
+    }
+
+    .policy-header {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 50px 40px;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .policy-header::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320"><path fill="%23ffffff" fill-opacity="0.1" d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,122.7C672,117,768,139,864,149.3C960,160,1056,160,1152,138.7C1248,117,1344,75,1392,53.3L1440,32L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"></path></svg>') no-repeat bottom;
+      background-size: cover;
+      opacity: 0.3;
+    }
+
+    .policy-header h1 {
+      font-size: 42px;
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-header p {
+      font-size: 18px;
+      opacity: 0.95;
+      position: relative;
+      z-index: 1;
+    }
+
+    .policy-content {
+      padding: 50px 40px;
+    }
+
+    .section {
+      margin-bottom: 35px;
+    }
+
+    .section-title {
+      color: #2d5016;
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      font-size: 26px;
+      color: #4a7c2b;
+    }
+
+    .subsection-title {
+      color: #2d5016;
+      font-size: 18px;
+      font-weight: 600;
+      margin-top: 25px;
+      margin-bottom: 12px;
+    }
+
+    .policy-content p {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .policy-content ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 20px;
+    }
+
+    .policy-content li {
+      color: #333;
+      font-size: 16px;
+      margin-bottom: 12px;
+      padding-left: 30px;
+      position: relative;
+    }
+
+    .policy-content li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #4a7c2b;
+      font-weight: bold;
+      font-size: 18px;
+    }
+
+    .highlight-box {
+      background: #f8f9fa;
+      border-left: 4px solid #4a7c2b;
+      padding: 20px 25px;
+      margin: 25px 0;
+      border-radius: 8px;
+    }
+
+    .highlight-box.warning {
+      background: #fff3cd;
+      border-left-color: #ffc107;
+    }
+
+    .highlight-box.important {
+      background: #f8d7da;
+      border-left-color: #dc3545;
+    }
+
+    .highlight-box p {
+      margin-bottom: 8px;
+    }
+
+    .highlight-box p:last-child {
+      margin-bottom: 0;
+    }
+
+    .highlight-box strong {
+      color: #2d5016;
+    }
+
+    .contact-box {
+      background: linear-gradient(135deg, #2d5016 0%, #4a7c2b 100%);
+      color: white;
+      padding: 30px;
+      border-radius: 12px;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .contact-box h3 {
+      font-size: 24px;
+      margin-bottom: 15px;
+    }
+
+    .contact-box p {
+      color: white;
+      font-size: 16px;
+      margin-bottom: 10px;
+    }
+
+    .contact-box a {
+      color: #fff;
+      text-decoration: none;
+      font-weight: 600;
+      border-bottom: 2px solid rgba(255,255,255,0.5);
+      transition: border-color 0.3s;
+    }
+
+    .contact-box a:hover {
+      border-bottom-color: white;
+    }
+
+    .back-button {
+      display: inline-block;
+      background: #4a7c2b;
+      color: white;
+      padding: 12px 30px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 30px;
+      transition: background 0.3s;
+    }
+
+    .back-button:hover {
+      background: #2d5016;
+    }
+
+    .back-button i {
+      margin-right: 8px;
+    }
+
+    @media (max-width: 768px) {
+      .policy-header {
+        padding: 35px 25px;
+      }
+
+      .policy-header h1 {
+        font-size: 32px;
+      }
+
+      .policy-content {
+        padding: 35px 25px;
+      }
+
+      .section-title {
+        font-size: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="policy-container">
+    <div class="policy-header">
+      <h1><i class="fas fa-file-contract"></i> Cancellation Policy</h1>
+      <p>Terrain Vanabas Resort</p>
+    </div>
+
+    <div class="policy-content">
+
+      <div class="section">
+        <p>At Terrain Vanabas Resort, we understand that travel plans can change unexpectedly. Our cancellation policy is designed to be fair and transparent while ensuring smooth resort operations.</p>
+      </div>
+
+      <!-- Standard Cancellation Terms -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-calendar-times"></i>
+          <span>Standard Cancellation Terms</span>
+        </div>
+
+        <div class="subsection-title">Free Cancellation Period</div>
+        <p>Guests may cancel their reservation free of charge up to <strong>48 hours (2 days)</strong> before the scheduled check-in date. Full refund will be processed to the original payment method within 7-10 business days.</p>
+
+        <div class="highlight-box">
+          <p><strong><i class="fas fa-info-circle"></i> Important:</strong> You must cancel at least 2 days before your arrival date to receive a full refund.</p>
+        </div>
+
+        <div class="subsection-title">Late Cancellation Fee</div>
+        <p>Cancellations made less than 48 hours before check-in will incur a cancellation fee equivalent to <strong>one night's room rate</strong>. The remaining amount will be refunded to your original payment method.</p>
+
+        <div class="subsection-title">No-Show Policy</div>
+        <p>If you do not arrive and have not canceled your reservation, the total cost of the first night will be charged to your payment method. No refund will be issued for no-shows.</p>
+      </div>
+
+      <!-- How to Cancel -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-phone-alt"></i>
+          <span>How to Cancel Your Booking</span>
+        </div>
+        <p>To cancel or modify your reservation, please contact us at least 2 days before your check-in date through any of the following methods:</p>
+        <ul>
+          <li><strong>Email:</strong> info@jcktpic.com (include your booking confirmation number)</li>
+          <li><strong>Phone:</strong> Contact our reservations team directly</li>
+          <li><strong>Original Booking Channel:</strong> Cancel through the platform you used to book</li>
+        </ul>
+      </div>
+
+      <!-- Special Circumstances -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-heart"></i>
+          <span>Special Circumstances</span>
+        </div>
+        <p>We recognize that emergencies happen. Exceptions to our cancellation policy may be granted for:</p>
+        <ul>
+          <li>Medical emergencies (documentation required)</li>
+          <li>Natural disasters or extreme weather conditions</li>
+          <li>Government-imposed travel restrictions</li>
+        </ul>
+        <p>Please contact our reservations team directly to discuss special circumstances. Each case will be reviewed individually by management.</p>
+      </div>
+
+      <!-- Modification Policy -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-edit"></i>
+          <span>Modification Policy</span>
+        </div>
+        <p>Changes to your reservation dates or room type are subject to availability. Modifications requested at least 48 hours before check-in can be made without charge. Modifications after this period may be subject to cancellation fees and rate differences.</p>
+      </div>
+
+      <!-- Non-Refundable Bookings -->
+      <div class="section">
+        <div class="section-title">
+          <i class="fas fa-ban"></i>
+          <span>Non-Refundable Bookings</span>
+        </div>
+        <p>Special promotional rates may be offered as non-refundable bookings. These reservations cannot be canceled, modified, or refunded under any circumstances. The non-refundable nature will be clearly indicated at the time of booking.</p>
+
+        <div class="highlight-box warning">
+          <p><strong><i class="fas fa-exclamation-triangle"></i> Please Note:</strong> Always check if your booking rate is refundable or non-refundable before confirming your reservation.</p>
+        </div>
+      </div>
+
+      <!-- Important Notice -->
+      <div class="highlight-box important">
+        <p><strong><i class="fas fa-shield-alt"></i> Acknowledgment:</strong></p>
+        <p>By completing your booking, you acknowledge that you have read and agree to our cancellation policy. We recommend purchasing travel insurance for additional protection against unforeseen circumstances.</p>
+      </div>
+
+      <!-- Contact Section -->
+      <div class="contact-box">
+        <h3><i class="fas fa-headset"></i> Need Assistance?</h3>
+        <p>If you have any questions about our cancellation policy or need to cancel your reservation, please contact us:</p>
+        <p><strong>Email:</strong> <a href="mailto:info@jcktpic.com">info@jcktpic.com</a></p>
+        <p>Our team is here to help you 24/7</p>
+      </div>
+
+      <div style="text-align: center;">
+        <a href="Guest.html" class="back-button">
+          <i class="fas fa-arrow-left"></i>
+          Back to Booking
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>
